@@ -1,0 +1,18 @@
+{
+  "name": "folder-drop-manager",
+  "version": "0.0.2",
+  "description": "Easy API for Desktop Folder Drag&Drop to the browser",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "minify": "minify-fast --input dist/**/.js"
+  },
+  "keywords": ["web file", "folder drag and drop", "html file api", "file api"],
+  "author": "Sebastian Gurin",
+  "license": "MIT",
+  "devDependencies": {
+    "minify-fast": "^0.9.0",
+    "typescript": "^2.9.2"
+  }
+}
