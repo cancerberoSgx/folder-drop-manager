@@ -10,18 +10,18 @@
 
 <body>
 
-  <div id="seba" style="width: 300px; height: 400px; border: 2px solid pink">
+  <div id="container" style="width: 300px; height: 400px; border: 2px solid pink">
     Drag and drop a folder here please </div>
-
-
-    <script src="folderDropManager.js"></script>
+  <!-- the following script is because we dont have nor AMD / UMD or commons here  -->
+    <script>window.exports = {}; window.module={exports : {}}, window.require=function(){}</script>
+  <script src="folder-drop-manager.js"></script>
   <script>
     const files = []
     function listener(event) {
       if (event.type === 'finish') {
         console.log('Data transfer finish. Files are : ' + files.map(f => f.fileName));
       }
-      if (event.type === 'error') {
+      else if (event.type === 'error') {
         console.log('There was an error in the process: ' + event.error);
       }
       else {
@@ -29,9 +29,10 @@
           files.push({ fileName: event.file.fullPath, content: event.file.content })
         }
       }
+    }
 
-      const manager = new FolderDDManager()
-      manager.install(document.getElementById('seba'), listener)
+    const manager = createFolderDropManager()
+    manager.install(document.getElementById('container'), listener)
   </script>
 </body>
 

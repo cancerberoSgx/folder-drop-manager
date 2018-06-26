@@ -47,6 +47,8 @@ function  FolderDDManager () { };
 export function createFolderDropManager(): FolderDropManager{
   return new FolderDDManager()
 }
+(window as any).createFolderDropManager = createFolderDropManager;
+
 const proto = FolderDDManager.prototype;
 
 const w = (window as any)

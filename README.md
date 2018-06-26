@@ -10,14 +10,18 @@
 npm install --save folder-drop-manager
 ```
 
+Or you can grab the browser AMD / UMD version from dist/umd/src/index.js and load it using a script tag in your html. See [Demo](https://cancerberosgx.github.io/folder-drop-manager/)
 
-```typescrcipt
+
+
+```typescript 
+import {FolderDDManager} from 'folder-drop-manager'
+
 let files: ProgramFile[] = [] // we collect the files and build a new Example (TODO do it better)
 let folderDDManager: FolderDropManager
 const folderDDListener = function (event: FolderDropManagerEvent) {
   if(event.type==='finish'){
     console.log('finish files : '+files.map(f=>f.fileName));
-    debugger;
     const newExample: Example = {
       id: 'dropped_'+performance.now(),
       name: 'A folder just dropped',
@@ -28,19 +32,13 @@ const folderDDListener = function (event: FolderDropManagerEvent) {
     }
     executeExample(newExample)
   }
-  //TODO event.type==='error
   else if (event.file.isFile) {
     files.push({fileName: event.file.fullPath, content: event.file.content})
   }
 }
-getRenderEmitter().on('afterRender', () => {
-  folderDDManager = createFolderDropManager().install(document.getElementById('tsProjectFolderDropArea'), folderDDListener)
-})
-getRenderEmitter().on('beforeRender', () => {
-  if (folderDDManager) {
-    folderDDManager.uninstall(document.getElementById('tsProjectFolderDropArea'), folderDDListener)
-  }
-})
+
+const folderDDManager = createFolderDropManager()
+folderDDManager.install(document.getElementById('tsProjectFolderDropArea'), folderDDListener)
 
 ```
 

@@ -5,8 +5,10 @@
   "main": "dist/src/index.js",
   "typings": "dist/src/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "minify": "minify-fast --input dist/**/.js"
+    "build": "tsc && tsc -p ./tsconfig-umd.json",
+    "minify": "minify-fast --input dist-umd/**/*.js",
+    "copy": "cp dist-umd/src/index.js docs/folder-drop-manager.js",
+    "prepare": "rm -rf dist dist-umd && npm run build && npm run minify&& npm run copy"
   },
   "keywords": ["web file", "folder drag and drop", "html file api", "file api"],
   "author": "Sebastian Gurin",
