@@ -2,16 +2,21 @@
 
 # See it in action
 
-[Demo](https://cancerberosgx.github.io/folder-drop-manager/)
+ * [Demo](https://cancerberosgx.github.io/folder-drop-manager/)
 
-## Install
+# Install
 
 ```sh
 npm install --save folder-drop-manager
 ```
 
-Or you can grab the browser AMD / UMD version from dist/umd/src/index.js and load it using a script tag in your html. See [Demo](https://cancerberosgx.github.io/folder-drop-manager/)
+Or you can grab the browser AMD / UMD version from dist/umd/src/index.js and load it using a script tag in your html. 
 
+# Examples
+
+ * Using Normal (commonsjs) bundle [Demo](https://cancerberosgx.github.io/folder-drop-manager/)
+ * Using UMD bundle  TODO
+ * Using MJS (ES modules) bundle  TODO
 
 
 ```typescript 
@@ -36,16 +41,14 @@ const folderDDListener = function (event: FolderDropManagerEvent) {
     files.push({fileName: event.file.fullPath, content: event.file.content})
   }
 }
-
 const folderDDManager = createFolderDropManager()
 folderDDManager.install(document.getElementById('tsProjectFolderDropArea'), folderDDListener)
-
 ```
 
+# Development
 
-
-
+```
+npm run build
+npm run all 
 That last one will generate a production ready distribution in ./docs
-
-# Independent examples
-
+```
