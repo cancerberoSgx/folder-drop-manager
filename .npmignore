@@ -1,4 +1,6 @@
-
-docs
+/docs
 node_modules
-src
+/src
+/dist*
+/examples
+/tsconfig*

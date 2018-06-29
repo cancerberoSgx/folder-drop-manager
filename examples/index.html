@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+  <div id="container" style="width: 300px; height: 400px; border: 2px solid pink">
+    Drag and drop a folder here please </div>
+  <!-- the following script is because we dont have nor AMD / UMD or commons here  -->
+    <script>window.exports = {}; window.module={exports : {}}, window.require=function(){}</script>
+  <script src="folder-drop-manager.js"></script>
+  <script>
+    const files = []
+    function listener(event) {
+      if (event.type === 'finish') {
+        console.log('Data transfer finish. Files are : ' + files.map(f => f.fileName));
+      }
+      else if (event.type === 'error') {
+        console.log('There was an error in the process: ' + event.error);
+      }
+      else {
+        if (event.file.isFile) {
+          files.push({ fileName: event.file.fullPath, content: event.file.content })
+        }
+      }
+    }
+
+    const manager = createFolderDropManager()
+    manager.install(document.getElementById('container'), listener)
+  </script>
+</body>
+
+</html>

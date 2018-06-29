@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es2007",
+    "module": "es2015",
+    "esModuleInterop": false,
+    "outDir": "./dist-mjs"
+  }
+}
