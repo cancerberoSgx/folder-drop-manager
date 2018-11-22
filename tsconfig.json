@@ -3,7 +3,7 @@
     "target": "es5",   
     "module": "commonjs", 
     "moduleResolution": "node",
-    "lib": ["es6", "dom"],
+    "lib": ["es6", "dom", "es2015"],
     "outDir": "./dist", 
     "rootDir": ".",
     "strict": false,

@@ -2,8 +2,8 @@
   "name": "folder-drop-manager",
   "version": "0.1.3",
   "description": "Easy API for Desktop Folder Drag&Drop to the browser",
-  "main": "build/folder-drop-manager.js",
-  "typings": "build/folder-drop-manager.d.ts",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
   "scripts": {
     "build": "tsc && tsc -p ./tsconfig-umd.json && tsc -p ./tsconfig-mjs.json",
     "minify": "minify-fast --input dist/**/*.js --input dist-umd/**/*.js --debug && minify-fast --input dist-mjs/**/*.js --parser acorn --acornSourceType module --debug",
@@ -21,6 +21,6 @@
   "license": "MIT",
   "devDependencies": {
     "minify-fast": "^0.10.0",
-    "typescript": "^2.9.2"
+    "typescript": "^3.1.6"
   }
 }
